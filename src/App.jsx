@@ -3,6 +3,12 @@ import Hero from './components/Hero'
 import Scheduler from './components/Scheduler'
 import QuickAdd from './components/QuickAdd'
 import Meals from './components/Meals'
+import Tasks from './components/Tasks'
+import Pantry from './components/Pantry'
+import Bills from './components/Bills'
+import Subscriptions from './components/Subscriptions'
+import ShoppingList from './components/ShoppingList'
+import Checkins from './components/Checkins'
 
 function App() {
   const [quickType, setQuickType] = useState('task')
@@ -26,6 +32,16 @@ function App() {
           <QuickAdd key={quickType + refreshKey} type={quickType} onDone={bump} />
         </div>
       </div>
+
+      <div className="max-w-5xl mx-auto px-6 pb-8 grid md:grid-cols-2 gap-4">
+        <Tasks refreshKey={refreshKey} />
+        <Pantry refreshKey={refreshKey} />
+        <Bills refreshKey={refreshKey} />
+        <Subscriptions refreshKey={refreshKey} />
+        <ShoppingList refreshKey={refreshKey} />
+        <Checkins refreshKey={refreshKey} />
+      </div>
+
       <Scheduler key={`sched-${refreshKey}`} />
       <Meals />
       <div className="text-center text-xs text-gray-500 pb-6">Daily Life Optimizer — calm, friendly, and helpful</div>
